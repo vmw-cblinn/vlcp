@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import json
-import cjson
 import os
 
 baseDir = os.path.dirname(os.path.realpath(__file__))
@@ -11,7 +10,7 @@ cps = []
 for fileName in os.listdir(contentDir):
     if '.vlcp' == os.path.splitext(fileName)[1]:
         f = open(os.path.join(contentDir, fileName))
-        js = cjson.decode(f.read())
+        js = json.loads(f.read())
         js.pop('dashboardSections', None)
         js.pop('alerts', None)
         js.pop('queries', None)

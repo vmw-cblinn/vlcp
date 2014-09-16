@@ -1,0 +1,14 @@
+{
+  "dashboardSections": [],
+  "alerts": [],
+  "name": "cblinn",
+  "queries": [],
+  "extractedFields": [],
+  "framework": "#5dc",
+  "version": "2.0",
+  "namespace": "b5c6f1ba-c3b1-4e9a-83ca-9d1b38e506f3",
+  "author": "",
+  "contentVersion": "1.0",
+  "url": "",
+  "info": ""
+}
