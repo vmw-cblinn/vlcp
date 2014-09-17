@@ -13,16 +13,7 @@
                   "name": "Count of Events grouped by Message ID",
                   "gridWidth": "1/2",
                   "chartQuery": "SELECT COUNT(item0) FROM (timestamp >= 0 & timestamp <= 0 & text:\"raslogd\") & text=~\"\\[(?<ibadcnk7mnxw2ltcojxwgylemuxgiy3nmrrw2x3tpfzwy33hl5wwk43tmftwklljmq000000>\\S+)]\" as item0 GROUP BY item0.ibadcnk7mnxw2ltcojxwgylemuxgiy3nmrrw2x3tpfzwy33hl5wwk43tmftwklljmq000000 ORDER BY COUNT(item0) DESC LIMIT 1,2000",
-                  "info": "Displays count of Syslog events from Brocade Fibre Channel switches grouped by message ID. User can verify a particular event received from different sources.<br>
-				  <br>Following  Extracted Fields  can be used with syslog messages<br><br>
-				  <table>
-				  <tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr>				  
-				  <tr><td>dcm_syslog_message-id</td><td>gives the syslog message id</td><td>e.g. FW-1435, MAPS-1003 etc.</td></tr>
-				  <tr><td>dcm_wwn_address</td><td>gives the WWN of the switch</td><td>switch WWN</td></tr> 
-				  <tr><td>dcm_device_name</td><td>gives the switch name</td><td>switch name</td></tr> 
-			      <tr><td>dcm_device_port</td><td>gives the switch port details</td><td>port number</td></tr>
-				  <tr><td>dcm_log_level</td><td>gives the syslog priority level</td><td>e.g. Info, Warning etc.</td></tr>
-				  </table>  "
+                  "info": "Displays count of Syslog events from Brocade Fibre Channel switches grouped by message ID. User can verify a particular event received from different sources.<br> <br>Following  Extracted Fields  can be used with syslog messages<br><br> <table> <tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr><tr><td>dcm_syslog_message-id</td><td>gives the syslog message id</td><td>e.g. FW-1435, MAPS-1003 etc.</td></tr> <tr><td>dcm_wwn_address</td><td>gives the WWN of the switch</td><td>switch WWN</td></tr> <tr><td>dcm_device_name</td><td>gives the switch name</td><td>switch name</td></tr> <tr><td>dcm_device_port</td><td>gives the switch port details</td><td>port number</td></tr> <tr><td>dcm_log_level</td><td>gives the syslog priority level</td><td>e.g. Info, Warning etc.</td></tr> </table>  "
                 },                
 				{
                   "widgetType": "chart",
@@ -112,17 +103,7 @@
                   "name": "Audit Events over Time",
                   "gridWidth": "1/2",
                   "chartQuery": "SELECT COUNT(item0) FROM (timestamp >= 0 & timestamp <= 0)  & (text:\"raslogd\" & text:\"AUDIT\") as item0 GROUP BY item0.timestamp/0 ORDER BY item0.timestamp ASC LIMIT 1,2000",
-                  "info": "Displays all audit events (syslog messages which have type as Audit) received from Brocade Fibre Channel switches over a period of time. <br><br>Following Extracted Fields can be used with Audit events <br>
-				  <br><table>
-				  <tr><td>Extracted Fields</td><td>Description</td><td>Example Values</td></tr>
-				  <tr><td>dcm_audit_module</td><td>gives the audit event generated module name </td><td>Security, Fabric etc.</td></tr>
-				  <tr><td>dcm_audit_priority</td><td>gives the priority  of the audit events </td><td>Info, Warning etc.</td></tr>
-				  <tr><td>dcm_audit_type</td><td>gives the type of the audit events </td><td>login, logout etc. </td></tr>
-				  <tr><td>dcm_audit_status</td><td>gives the status of the event </td><td>login failed or success etc.</td></tr>
-				  <tr><td>dcm_audit_info</td><td>gives information about the event</td><td>Failed login attempt via HTTP etc.</td></tr>
-				  <tr><td>dcm_audit_IPAddress</td><td>gives the source IP address </td><td>IP address</td></tr>
-				  </table>
-				  "
+                  "info": "Displays all audit events (syslog messages which have type as Audit) received from Brocade Fibre Channel switches over a period of time. <br><br>Following Extracted Fields can be used with Audit events <br> <br><table> <tr><td>Extracted Fields</td><td>Description</td><td>Example Values</td></tr> <tr><td>dcm_audit_module</td><td>gives the audit event generated module name </td><td>Security, Fabric etc.</td></tr> <tr><td>dcm_audit_priority</td><td>gives the priority  of the audit events </td><td>Info, Warning etc.</td></tr> <tr><td>dcm_audit_type</td><td>gives the type of the audit events </td><td>login, logout etc. </td></tr> <tr><td>dcm_audit_status</td><td>gives the status of the event </td><td>login failed or success etc.</td></tr> <tr><td>dcm_audit_info</td><td>gives information about the event</td><td>Failed login attempt via HTTP etc.</td></tr> <tr><td>dcm_audit_IPAddress</td><td>gives the source IP address </td><td>IP address</td></tr> </table> "
                 },
                 {
                   "widgetType": "chart",
@@ -180,12 +161,7 @@
                   "name": "Count of Events over Time",
                   "gridWidth": "1/2",
                   "chartQuery": "SELECT COUNT(item0) FROM (timestamp >= 0 & timestamp <= 0) &  (text:\"raslogd\") & (text:\"FW-1424\" | text:\"FW-1425\") as item0 GROUP BY item0.timestamp/86400000 ORDER BY item0.timestamp ASC",
-                  "info": "Displays the count of switch status events (FW-1424 & Fw-1425) received from Brocade Fibre Channel switches over a period of time
-				  <br>
-				  Following Extracted field can be used with switch status events
-				  
-				  dcm_switch_status	---- gives the previous & current switch status --- e.g. Healthy to Down
-				  "
+                  "info": "Displays the count of switch status events (FW-1424 & Fw-1425) received from Brocade Fibre Channel switches over a period of time <br> Following Extracted field can be used with switch status events dcm_switch_status ---- gives the previous & current switch status --- e.g. Healthy to Down "
                 },
                 {
                   "widgetType": "chart",
@@ -218,11 +194,7 @@
                   "name": "Bottleneck Events over Time",
                   "gridWidth": "1/2",
                   "chartQuery": "SELECT COUNT(item0) FROM (timestamp >= 0 & timestamp <= 0 & text:\"raslogd\")  &  (text:\"AN-1003\"  | text:\"AN-1004\" | text:\"AN-1007\" | text:\"AN-1008\" | text:\"AN-1010\" ) as item0 GROUP BY item0.timestamp/0 ORDER BY item0.timestamp ASC LIMIT 1,2000",
-                  "info": "All bottleneck events (AN-1003, AN-1004, AN-1007, AN-1008 & AN-1010) received from Brocade Fibre Channel switches over a time.<br>
-				  <br>Following Extracted fields can be to find the bottleneck event type <br>	<br>
-				  <table>
-				  <tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr>				  				  
-				  <tr><td>dcm_bottleneck_type</td><td>gives the type of bottleneck event</td><td>e.g. Congestion  or Latency</td></tr></table>"								  
+                  "info": "All bottleneck events (AN-1003, AN-1004, AN-1007, AN-1008 & AN-1010) received from Brocade Fibre Channel switches over a time.<br> <br>Following Extracted fields can be to find the bottleneck event type <br> <br> <table> <tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr><tr><td>dcm_bottleneck_type</td><td>gives the type of bottleneck event</td><td>e.g. Congestion  or Latency</td></tr></table>"								  
                 },
                 {
                   "widgetType": "chart",
@@ -258,20 +230,7 @@
                   "name": "Count of MAPS violation Events over Time grouped by Category",
                   "gridWidth": "1/2",
                   "chartQuery": "SELECT COUNT(item0) FROM timestamp >= 0 & timestamp <= 0 & text:\"raslogd\" & text:\"maps-*\" & text=~\"Category=(?<ibadcnk7mnxw2ltcojxwgylemuxgiy3nmrrw2x3nmfyhgx3dmf2gkz3poj4q0000>.*).\" as item0 GROUP BY item0.timestamp/43200000,item0.ibadcnk7mnxw2ltcojxwgylemuxgiy3nmrrw2x3nmfyhgx3dmf2gkz3poj4q0000 ORDER BY item0.ibadcnk7mnxw2ltcojxwgylemuxgiy3nmrrw2x3nmfyhgx3dmf2gkz3poj4q0000 DESC,item0.timestamp DESC LIMIT 1,2000",
-                  "info": "Displays the MAPS violations (Message ID starts with MAPS-) received from Brocade Fibre Channel switches over a period of time grouped by the violation category i.e. switch resource, port health etc.<br>				   
-				<br>Following Extracted Fields can be used with MAPs events<br>	<br>
-				<table>
-				<tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr>				  
-				<tr><td>dcm_flow_currentValue</td><td>gives the current value of the violation count</td><td>numeric value</td></tr>
-				<tr><td>dcm_maps_category</td><td>gives the MAPS violation category</td><td>e.g. Traffic Performance, Port Health etc.</td></tr>
-				<tr><td>dcm_maps_rulename</td><td>gives the MAPS violation rule name</td><td>String</td></tr>
-				<tr><td>dcm_maps_rulecondition</td><td>gives the MAPs violation rule condition</td><td>e.g. ALL_PORTS(RX/min>=0)</td></tr>
-				<tr><td>dcm_maps_object</td><td>gives the MAPs violation occurred object details</td><td>e.g. Switch, Chassis</td></tr>
-				<tr><td>dcm_flash_usage</td><td>gives the flash usage details</td><td>numeric value</td></tr>
-				
-				<tr><td>dcm_maps_currentValue</td><td>gives the current value</td><td>SEC_HTTP,1 Violations</td></tr>				
-				
-				</table>"	
+                  "info": "Displays the MAPS violations (Message ID starts with MAPS-) received from Brocade Fibre Channel switches over a period of time grouped by the violation category i.e. switch resource, port health etc.<br><br>Following Extracted Fields can be used with MAPs events<br><br> <table> <tr><td>Extracted Fields</td><td> Description</td><td>Example Values</td></tr><tr><td>dcm_flow_currentValue</td><td>gives the current value of the violation count</td><td>numeric value</td></tr><tr><td>dcm_maps_category</td><td>gives the MAPS violation category</td><td>e.g. Traffic Performance, Port Health etc.</td></tr> <tr><td>dcm_maps_rulename</td><td>gives the MAPS violation rule name</td><td>String</td></tr> <tr><td>dcm_maps_rulecondition</td><td>gives the MAPs violation rule condition</td><td>e.g. ALL_PORTS(RX/min>=0)</td></tr> <tr><td>dcm_maps_object</td><td>gives the MAPs violation occurred object details</td><td>e.g. Switch, Chassis</td></tr> <tr><td>dcm_flash_usage</td><td>gives the flash usage details</td><td>numeric value</td></tr> <tr><td>dcm_maps_currentValue</td><td>gives the current value</td><td>SEC_HTTP,1 Violations</td></tr></table>"	
                 },
                 {
                   "widgetType": "chart",
@@ -487,7 +446,7 @@
       "displayName": "dcm_flow_currentValue"
     },
 	{
-      "postContext": "\],",
+      "postContext": "\\],",
       "internalName": "ibadgns7mm4tcobxgazweljyg4zwiljug4ygcllbgq2gilldmvstqn3gha4dinjzgvsgg3k7nvqxa427mn2xe4tfnz2hmylmovsq0000",
       "preContext": "(^raslogd:.*)(Current Value:\\[)",
       "regexValue": ".*",
