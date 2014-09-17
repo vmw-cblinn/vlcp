@@ -429,5 +429,6 @@
     }
   ],
   "namespace": "com.puppetlabs.pe",
-  "version": "0.0.1"
+  "version": "1.0",
+  "contentVersion": "0.0.1"
 }

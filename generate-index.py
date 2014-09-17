@@ -11,7 +11,12 @@ cps = []
 for fileName in os.listdir(contentDir):
     if '.vlcp' == os.path.splitext(fileName)[1]:
         f = open(os.path.join(contentDir, fileName))
-        js = cjson.decode(f.read())
+        text = f.read();
+        try:
+            js = json.loads(text);
+        except:
+            # some of our json encoding is strange
+            js = cjson.decode(text)
         js.pop('dashboardSections', None)
         js.pop('alerts', None)
         js.pop('queries', None)
