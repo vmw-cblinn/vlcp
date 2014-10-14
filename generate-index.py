@@ -49,7 +49,7 @@ for root, subs, names in os.walk(content_dir):
             if namespace in frameworks[framework]:
                 print "The following two files contain the same namespace and framemwork:"
                 print "\t" + prep_path(path)
-                print "\t" + prep_path(namespaces[namespace][framework])
+                print "\t" + prep_path(frameworks[framework][namespace])
                 print "Remove the older version and rerun this script to continue"
                 sys.exit()
             frameworks[framework][namespace] = path
