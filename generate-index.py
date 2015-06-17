@@ -23,7 +23,13 @@ def load_json(file_path):
     f = open(file_path)
     text = f.read()
     f.close()
-    return json.loads(text)
+    try:
+        json_text = json.loads(text);
+    except ValueError as e:
+        print "JSON Syntax error found in", file_path
+        print "ValueError:", e
+        sys.exit(0);
+    return json_text
 
 
 def prep_path(file_path):
@@ -54,33 +60,6 @@ for root, subs, names in os.walk(content_dir):
                 sys.exit()
             frameworks[framework][namespace] = path
             paths.append(path)
-
-versions = sorted(frameworks.keys())
-index_files = {}
-# since content packs are backwards compatible
-# push all previous versions to the future index files
-# eg, for all framework 1000 packs will appear in 1500+
-#index_files[versions[0]] = []
-#for i in range(1, len(versions)):
-#    curr = versions[i]
-#    prev = versions[i - 1]
-#    index_files[curr] = []
-#    for namespace in frameworks[prev]:
-#        if namespace not in frameworks[curr]:
-#            frameworks[curr][namespace] = frameworks[prev][namespace]
-#
-#for path in paths:
-#    js = prep_json(path)
-#    framework = int(js['framework'][1:], 16)
-#    namespace = js['namespace']
-#    for i in range(versions.index(framework), len(versions)):
-#        if frameworks[versions[i]][namespace] == path:
-#            index_files[versions[i]].append(js)
-#
-#for index in index_files:
-#    g = open(json_file + hex_name(index), 'w')
-#    g.write(json.dumps(index_files[index], indent=2, separators=(',', ': ')))
-#    g.close()
 
 index_json = []
 for path in paths:
